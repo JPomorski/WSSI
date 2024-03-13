@@ -45,14 +45,14 @@ Boty przygotowane na test Turinga próbują w dosyć naturalny sposób brnąć p
 Boty asystenci bardzo łatwo się gubią i albo zaczynają się powtarzać, albo kompletnie zmieniają tor rozmowy.
 
 `2, 3)`
-Opowiadanie żartów to tragedia. O ile np. Chat GPT sobie jakoś radzi (choć jego żarty nie wykazują zbyt dużego potencjału komediowego), tak boty mniej złożone albo odmawiają opowiedzenia żartu (ponieważ nie wchodzi to w zakres ich kompetencji), albo kompletnie zmieniają temat. Podobnie wygląda sprawa cytowania: <br>
+Opowiadanie żartów to tragedia. O ile np. ChatGPT sobie jakoś radzi (choć jego żarty nie wykazują zbyt dużego potencjału komediowego), tak boty mniej złożone albo odmawiają opowiedzenia żartu (ponieważ nie wchodzi to w zakres ich kompetencji), albo kompletnie zmieniają temat. Podobnie wygląda sprawa cytowania: <br>
 > -- Do you know any good Tolkien quotes? <br>
 > -- No not really. <br>
 
 I to by było na tyle...
 
 Słowa-klucze są w stanie wymusić jakąś konkretną odpowiedź, zależy tylko jakie. Ogólne pojęcia dotyczące świata realnego działają w tym wypadku najlepiej.
-Duże ilości pytań i powracanie do poprzednich wypowiedzi dla większości botów stanowi jednak problem. Chat GPT jest do tego stworzony więc umie sobie poradzić.
+Duże ilości pytań i powracanie do poprzednich wypowiedzi dla większości botów stanowi jednak problem. ChatGPT jest do tego stworzony więc umie sobie poradzić.
 Pozostałe boty najczęściej odnoszą się jedynie do ostatniej wysłanej wiadomości. Powoduje to często zapętlenie i powtarzanie w kółko jednej kwestii.
 
 Generalnie boty-asystenci dosyć dobrze radzą sobie z odgrywaniem swojej roli. Są przystosowane do otrzymywania dużej ilości pytań, i jeśli są one w odpowiedniej tematyce to potrafią sobie z nimi poradzić. Wypowiedzi te jednak nie zawsze są płynne i czasem wyraźnie widać że pisze je bot.
