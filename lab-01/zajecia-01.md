@@ -1,4 +1,4 @@
-## Zadanie 1
+# Zadanie 1
 
 Które z następujących zadań wymagają w Twojej opinii inteligencji od człowieka:
 - streszczanie tekstu,
@@ -10,7 +10,7 @@ Które z następujących zadań wymagają w Twojej opinii inteligencji od człow
 - symboliczne całkowanie funkcji
 - kierowanie samochodem
 
-## Zadanie 2
+# Zadanie 2
 
 Które z następujących problemów można uznać za mieszczące się w zakresie sztucznej
 inteligencji:
@@ -24,7 +24,7 @@ inteligencji:
 - symboliczne obliczanie pochodnych
 - symboliczne całkowanie
 
-## Zadanie 3
+# Zadanie 3
 
 Które z poniższych rodzajów komunikacyjnego zachowania człowieka mogą być
 obecnie skutecznie imitowane przez sztuczne systemy (odpowiednio oprogramowane
@@ -34,31 +34,45 @@ maszyny):
 - odpowiadanie na pytania klientów w telefonicznej infolinii
 - odpowiadanie na pytania klientów w internetowej infolinii
 
-Uważam, że dyskusja polityczna albo naukowa stanowi jeszcze odrobinę za duże wyzwanie aktorskie, by AI mogło je realistycznie odwzorować.
+Uważam, że dyskusja polityczna albo naukowa stanowi jeszcze odrobinę za duże wyzwanie aktorskie, aby AI mogło je realistycznie odwzorować.
 
-## Zadanie 4
+# Zadanie 4
 
 W tym zadaniu głównie użyłem Cleverbota i swoich doświadczeń z ChatGPT.
 
-`1)`
+## 1.)
 Boty przygotowane na test Turinga próbują w dosyć naturalny sposób brnąć przez rozmowę, nawet jeśli nie znają odpowiedzi.
 Boty asystenci bardzo łatwo się gubią i albo zaczynają się powtarzać, albo kompletnie zmieniają tor rozmowy.
+Działają one bardzo schematycznie.
 
-`2, 3)`
-Opowiadanie żartów to tragedia. O ile np. ChatGPT sobie jakoś radzi (choć jego żarty nie wykazują zbyt dużego potencjału komediowego), tak boty mniej złożone albo odmawiają opowiedzenia żartu (ponieważ nie wchodzi to w zakres ich kompetencji), albo kompletnie zmieniają temat. Podobnie wygląda sprawa cytowania: <br>
+## 2., 3.)
+`a)` Opowiadanie żartów to tragedia. O ile np. ChatGPT sobie jakoś radzi (choć jego żarty nie wykazują zbyt dużego potencjału komediowego), tak boty mniej złożone albo odmawiają opowiedzenia żartu (ponieważ nie wchodzi to w zakres ich kompetencji), albo kompletnie zmieniają temat.
+
+`b)` Podobnie do punktu `a)` wygląda sprawa cytowania: <br>
 > -- Do you know any good Tolkien quotes? <br>
 > -- No not really. <br>
 
-I to by było na tyle...
+I dla Cleverbota to by było na tyle... <br>
 
-Słowa-klucze są w stanie wymusić jakąś konkretną odpowiedź, zależy tylko jakie. Ogólne pojęcia dotyczące świata realnego działają w tym wypadku najlepiej.
-Duże ilości pytań i powracanie do poprzednich wypowiedzi dla większości botów stanowi jednak problem. ChatGPT jest do tego stworzony więc umie sobie poradzić.
-Pozostałe boty najczęściej odnoszą się jedynie do ostatniej wysłanej wiadomości. Powoduje to często zapętlenie i powtarzanie w kółko jednej kwestii.
+GPT natomiast z cytowaniem nie ma problemów, zarówno w przypadku znanych ludzi jak i fragmentów aktualnej konwersacji.
 
-Generalnie boty-asystenci dosyć dobrze radzą sobie z odgrywaniem swojej roli. Są przystosowane do otrzymywania dużej ilości pytań, i jeśli są one w odpowiedniej tematyce to potrafią sobie z nimi poradzić. Wypowiedzi te jednak nie zawsze są płynne i czasem wyraźnie widać że pisze je bot.
-Drugą sprawą jest to, że takiego bota łatwo wywieść w pole zadając mu pytania spoza zakresu jego kompetencji. Najczęściej odpowiada wymijająco albo wymaga zadania innego pytania.
+`c)` Nawiązywanie do słów-kluczy zależy od bota. Większość botów udających człowieka posiada taką umiejętność i radzi sobie całkiem dobrze. Nawet niektóre boty-asystenci potrafią takie rzeczy wykonać (jeśli używają podobnych mechanik do odgadnięcia, o jaki towar/usługę chodzi w zapytaniu do nich kierowanym).
 
-`5)`
+`d)` Jeśli po prostu zasypujemy bota pytaniami jedno po drugim, w oddzielnych wiadomościach, to praktycznie każdy z nich sobie z tym poradzi (asystenci są nawet do tego stworzeni). Jeśli jednak zgrupujemy masę pytań do jednej wiadomości, to dla większości botów-asystentów stanowi to już spory problem. ChatGPT radzi sobie w tej dziedzinie dużo lepiej, chociaż też czasami zdarza mu się pominąć kilka kwestii.
+
+`e)` Większość botów, które nie pamiętają kontekstu całej rozmowy są podatne na zapętlanie i powtarzanie w kółko tych samych kwestii.
+Najczęściej widać to u asystentów, chociaż i bardziej inteligentne boty da się do tego doprowadzić (aczkolwiek zdarza się to rzadko).
+
+`f)`
+Umiejętność zadawania pytań powstających z wypowiedzi to bardziej cecha inteligentnych botów. Boty, które odnoszą się tylko do ostatniej wiadomości nie są w stanie formułować tak złożonych zapytań.
+
+`g, h, i)`
+Odpowiadanie wymijająco, zmienianie tematu czy gubienie wątków są na tyle bliskie, że postanowiłem zebrać je w jeden punkt. Są one częstą cechą u botów-asystentów oraz ogólnie u botów mniej inteligentnych. Jeśli taki bot nie potrafi składać własnych wypowiedzi na bieżąco, to bardzo często próbuje wrócić na tematy bardziej mu znane, poprzez ogólnikową odpowiedź albo zmianę tematu. A jeśli nie pamięta on kontekstu całej rozmowy, to naturalnie bardzo łatwo przyjdzie mu zgubić wątek kiedy rozmowa przestanie się sztywno trzymać jednego głównego tematu.
+
+
+## 5.)
 Bardzo łatwo zdenerwowałem Cleverbota: po napisaniu mu "I think you need to study" dostałem odpowiedź "I think you need to mind your own business."
+
+Boty, które pytają "Co?" są bardzo podatne na **pewne** kontrataki. W ten sposób też udało mi się jednego zdenerwować :)))
 
 
