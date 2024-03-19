@@ -1,44 +1,44 @@
 ## Ćwiczenie 11
 
-lubi(jan, pawel).
-lubi(pawel, krzysztof).
-lubi(pawel, jan).
-lubi(jan, bartek).
-lubi(bartek, jan).
+lubi(jan, pawel). <br>
+lubi(pawel, krzysztof). <br>
+lubi(pawel, jan). <br>
+lubi(jan, bartek). <br>
+lubi(bartek, jan). <br>
 
-mezczyzna(jan).
-mezczyzna(pawel).
-kobieta(kasia).
-kobieta(zosia).
+mezczyzna(jan). <br>
+mezczyzna(pawel). <br>
+kobieta(kasia). <br>
+kobieta(zosia). <br>
 
-kocha(jan, kasia).
-kocha(kasia, jan).
-kocha(pawel, zosia).
-kocha(krzysztof, linux).
+kocha(jan, kasia). <br>
+kocha(kasia, jan). <br>
+kocha(pawel, zosia). <br>
+kocha(krzysztof, linux). <br>
 
-przyjazn(X, Y) :-
-    lubi(X, Y),
+przyjazn(X, Y) :- <br>
+    lubi(X, Y), <br>
     lubi(Y, X).
 
-niby_przyjazn(X, Y) :-
-    lubi(X, Y);
+niby_przyjazn(X, Y) :- <br>
+    lubi(X, Y); <br>
     lubi(Y, X).
 
-1. 
-nieprzyjazn(X, Y) :-
-    \+lubi(X, Y),
-    \+lubi(X, Y).`
+### 1. 
+nieprzyjazn(X, Y) :- <br>
+    \\+lubi(X, Y), <br>
+    \\+lubi(X, Y).
 
 
-2. 
+### 2. 
 zrobione wyżej
 
-3. 
-loves(X, Y) :-
-    (kocha(X, Y); kocha(Y, X)),
+### 3. 
+loves(X, Y) :- <br>
+    (kocha(X, Y); kocha(Y, X)), <br>
     (mezczyzna(X), kobieta(Y); kobieta(X), mezczyzna(Y)).
 
-4. 
-true_love(X, Y) :-
-    (kocha(X, Y), kocha(Y, X)),
+### 4. 
+true_love(X, Y) :- <br>
+    (kocha(X, Y), kocha(Y, X)), <br>
     (mezczyzna(X), kobieta(Y); kobieta(X), mezczyzna(Y)).
