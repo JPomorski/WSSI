@@ -82,8 +82,8 @@ dziadek(X, Y) :-
     rodzic(Z, Y).
 
 rodzenstwo(X, Y) :-
-    rodzic(X, A),
-    rodzic(Y, A),
+    rodzic(X, A) \= rodzic(X, B),
+    rodzic(Y, A) \= rodzic(Y, B),
     rodzic(X, B),
     rodzic(Y, B).
 
