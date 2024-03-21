@@ -12,7 +12,7 @@ rodzic(x, b).
 rodzic(y, b).
 ```
 
-rodzeństwo
+rodzeństwo: X jest bratem Y, mają wspólnych rodziców
 
 **B)**
 ```
@@ -22,7 +22,7 @@ rodzic(c, b).
 rodzic(y, c).
 ```
 
-kuzyni
+kuzyni: rodzic X i rodzic Y mają wspólnego rodzica
 
 **C)**
 ```
@@ -32,7 +32,7 @@ rodzic(b, c).
 rodzic(c, y).
 ```
 
-teściowie
+teściowie: dziecko X i dziecko Y mają wspólne dziecko
 
 **D)**
 ```
@@ -41,7 +41,7 @@ rodzic(b, a).
 rodzic(b, y).
 ```
 
-dziacko - rodzic przyrodni
+dziacko - rodzic przyrodni: X jest dzieckiem przyrodnim Y, ma tylko jednego wspólnego rodzica z dzieckiem Y
 
 **E)**
 ```
@@ -51,7 +51,7 @@ rodzic(y, b).
 rodzic(y, c).
 ```
 
-rodzeństwo przyrodnie
+rodzeństwo przyrodnie: X i Y mają tylko jednego wspólnego rodzica
 
 **F)** 
 ```
@@ -61,19 +61,19 @@ rodzic(b, c).
 rodzic(y, c).
 ```
 
-szwagrowie 
+szwagrowie: rodzic dziecka X jest dzieckiem rodzica Y
 
 **G)** 
 ```
 rodzic(x, a).
-rodzic(x, b).
-rodzic(c, a).
-rodzic(y, c).
+rodzic(x, c).
+rodzic(b, a).
 rodzic(y, b).
+rodzic(y, c).
 ```
 
 ??? kazirodztwo ??? 💀  
-X jest wujkiem Y
+wujek - bratanek: dziacko rodzica X jest rodzicem Y
 
 ### Zad 1.2)
 ```
@@ -82,10 +82,12 @@ dziadek(X, Y) :-
     rodzic(Z, Y).
 
 rodzenstwo(X, Y) :-
-    rodzic(X, A) \= rodzic(X, B),
-    rodzic(Y, A) \= rodzic(Y, B),
+    rodzic(X, A),
+    rodzic(Y, A),
     rodzic(X, B),
-    rodzic(Y, B).
+    rodzic(Y, B),
+    X \= Y,
+    A \= B.
 
 kuzyni(X, Y) :-
     rodzic(X, A),
@@ -107,9 +109,18 @@ rodzic_przyrodni(X, Y) :-
 
 rodzenstwo_przyrodnie(X, Y) :-
     rodzic(X, A),
-    \+rodzic(Y, A),
-    rodzic(X, B),
+    rodzic(Y, A),
     rodzic(Y, B),
-    rodzic(Y, C),
-    \+rodzic(X, C).
+    \+rodzic(X, B).
+
+szwagrowie(X, Y) :-
+    rodzic(A, X),
+	rodzic(A, B),
+	rodzic(B, C),
+	rodzic(Y, C).
+
+bratanek(X, Y) :-
+    rodzic(X, A),
+    rodzic(B, A),
+    rodzic(Y, B).
 ```
