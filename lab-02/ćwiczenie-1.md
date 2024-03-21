@@ -1,60 +1,92 @@
-# Ćwiczenie 1
+# **Ćwiczenie 1**
 
-## Zad. 1
+## **Zad. 1**
+
 ### Zad. 1.1)
-A) <br>
-rodzic(X, A). <br>
-rodzic(Y, A). <br>
-rodzic(X, B). <br>
-rodzic(Y, B). <br>
 
-B) <br>
-rodzic(X, A). <br>
-rodzic(A, B). <br>
-rodzic(C, B). <br>
-rodzic(Y, C). <br>
+**A)**  
+```
+rodzic(X, A).
+rodzic(Y, A).
+rodzic(X, B).
+rodzic(Y, B).
+```
 
-C) <br>
-rodzic(A, X). <br>
-rodzic(C, A). <br>
-rodzic(C, B). <br>
-rodzic(B, Y). <br>
+rodzeństwo
 
-D) <br>
-rodzic(X, A). <br>
+**B)**
+```
+rodzic(X, A).
+rodzic(A, B).
+rodzic(C, B).
+rodzic(Y, C).
+```
+
+kuzyni
+
+**C)**
+```
+rodzic(A, X).
+rodzic(C, A).
+rodzic(C, B).
+rodzic(B, Y).
+```
+
+teściowie
+
+**D)**
+```
+rodzic(X, A).
 rodzic(B, A).
 rodzic(B, Y).
+```
 
-E) <br>
-rodzic(X, A). <br>
-rodzic(X, B). <br>
-rodzic(Y, B). <br>
-rodzic(Y, C). <br>
+dziacko - rodzic przyrodni
 
-F) <br>
-rodzic(A, X). <br>
-rodzic(A, B). <br>
-rodzic(B, C). <br>
-rodzic(Y, C). <br>
+**E)**
+```
+rodzic(X, A).
+rodzic(X, B).
+rodzic(Y, B).
+rodzic(Y, C).
+```
 
-G) <br>
-rodzic(X, A). <br>
-rodzic(X, B). <br>
-rodzic(C, A). <br>
-rodzic(Y, C). <br>
-rodzic(Y, B). <br>
+rodzeństwo przyrodnie
+
+**F)** 
+```
+rodzic(A, X).
+rodzic(A, B).
+rodzic(B, C).
+rodzic(Y, C).
+```
+
+szwagrowie 
+
+**G)** 
+```
+rodzic(X, A).
+rodzic(X, B).
+rodzic(C, A).
+rodzic(Y, C).
+rodzic(Y, B).
+```
+
+??? kazirodztwo ??? 💀
 
 ### Zad 1.2)
-dziadek(X, Y) :- <br>
-    rodzic(X, Z), <br>
-    rodzic(Z, Y). <br>
+```
+dziadek(X, Y) :-
+    rodzic(X, Z),
+    rodzic(Z, Y).
 
-rodzenstwo(X, Y) :- <br>
-    rodzic(X, Z), <br>
-    rodzic(Y, Z). <br>
+rodzenstwo(X, Y) :-
+    rodzic(X, Z),
+    rodzic(Y, Z).
 
-kuzyni(X, Y) :- <br>
-    rodzic(X, A), <br>
-    rodzic(A, B), <br>
-    rodzic(C, B), <br>
-    rodzic(Y, C). <br>
+kuzyni(X, Y) :-
+    rodzic(X, A),
+    rodzic(A, B),
+    rodzic(C, B),
+    rodzic(Y, C).
+```
