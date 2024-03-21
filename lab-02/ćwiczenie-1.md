@@ -41,7 +41,7 @@ rodzic(b, a).
 rodzic(b, y).
 ```
 
-dziacko - rodzic przyrodni: X jest dzieckiem przyrodnim Y, ma tylko jednego wspólnego rodzica z dzieckiem Y
+dziecko - rodzic przyrodni: X jest dzieckiem przyrodnim Y, ma tylko jednego wspólnego rodzica z dzieckiem Y
 
 **E)**
 ```
@@ -73,7 +73,7 @@ rodzic(y, c).
 ```
 
 ??? kazirodztwo ??? 💀  
-wujek - bratanek: dziacko rodzica X jest rodzicem Y
+wujek - bratanek: dziecko rodzica X jest rodzicem Y
 
 ### Zad 1.2)
 ```
