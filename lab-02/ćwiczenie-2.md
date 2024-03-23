@@ -5,7 +5,7 @@
 Baza predykatów:
 
 ```
-osoba(jan).		    %rodzice
+osoba(jan).         %rodzice
 osoba(kasia).
 osoba(bartek).      %dzieci
 osoba(julia).
