@@ -166,5 +166,5 @@ przodek_do2pokolenia_wstecz(X, Y) :-
 przodek_do3pokolenia_wstecz(X, Y) :-
     rodzic(X, Y);
     (dziadek(X, Y); babcia(X, Y));
-    ((rodzic(X, A), dziadek(A, Y)); (rodzic(X, A), babcia(A, Y))).
+    (rodzic(X, A), (dziadek(A, Y); babcia(A, Y))).
 ```
