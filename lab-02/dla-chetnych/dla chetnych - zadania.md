@@ -1,6 +1,7 @@
 ## Zad. 1
 
 ### a)
+
 ```
 czlowiek(markus).
 czlowiek(aureliusz).
@@ -37,6 +38,7 @@ false
 ## Zad. 2
 
 ### a)
+
 ```
 lubi(jan, X) :-
     pozywienie(X).
@@ -56,7 +58,6 @@ zabija(adam, trucizna).
 
 ## Zad. 3
 
-### a)
 ```
 urodzony(markus, 40).
 zniszczone(pompeje, 79).
