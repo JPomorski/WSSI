@@ -1,3 +1,5 @@
+import numpy as np
+from collections import Counter
 
 
 class Node:
@@ -19,26 +21,75 @@ class DecisionTree:
         self.n_features = n_features
         self.root = None
 
-    def fit(self, x, y):
-        pass
+    def fit(self, X, y):
+        if not self.n_features:
+            self.n_features = X.shape[1]
+        else:
+            self.n_features = min(X.shape[1], self.n_features)
 
-    def _grow_tree(self, x, y, depth=0):
-        pass
+        self.root = self._grow_tree(X, y)
 
-    def _best_split(self, x, y, feat_idxs):
-        pass
+    def _grow_tree(self, X, y, depth=0):
+        n_samples, n_features = X.shape
+        n_labels = len(np.unique(y))
 
-    def _information_gain(self, y, x_column, threshold):
-        pass
+        if depth >= self.max_depth or n_labels == 1 or n_samples < self.min_samples_split:
+            counter = Counter(y)
+            node_value = counter.most_common(1)[0][0]
+            return Node(value=node_value)
 
-    def _split(self, x_column, split_thresh):
-        pass
+        feat_idxs = np.random.choice(n_features, self.n_features, replace=False)
+
+        best_feature, best_threshold = self._best_split(X, y, feat_idxs)
+
+    def _best_split(self, X, y, feat_idxs):
+        best_gain = -1
+        index = None
+        threshold = None
+
+        for idx in feat_idxs:
+            X_column = X[:, idx]
+            thresholds = np.unique(X_column)
+
+            for thr in thresholds:
+                gain = self._information_gain(y, X_column, thr)
+
+                if gain > best_gain:
+                    best_gain = gain
+                    index = idx
+                    threshold = thr
+
+        return index, threshold
+
+    def _information_gain(self, y, X_column, threshold):
+        parent_entropy = self._entropy(y)
+        left_indices, right_indices = self._split(X_column, threshold)
+
+        if len(left_indices) == 0 or len(right_indices) == 0:
+            return 0
+
+        n = len(y)
+        n_left, n_right = len(left_indices), len(right_indices)
+
+        left_entropy, right_entropy = self._entropy(y[left_indices]), self._entropy(y[right_indices])
+        child_entropy = (n_left / n) * left_entropy + (n_right / n) * right_entropy
+
+        information_gain = parent_entropy - child_entropy
+        return information_gain
+
+    def _split(self, X_column, split_thresh):
+        left_indices = np.argwhere(X_column <= split_thresh).flatten()
+        right_indices = np.argwhere(X_column > split_thresh).flatten()
+
+        return left_indices, right_indices
 
     def _entropy(self, y):
-        pass
+        hist = np.bincount(y)
+        ps = hist / len(y)
+        return -np.sum([p * np.log(p) for p in ps if p > 0])
 
     def _traverse_tree(self, x, node):
         pass
 
-    def predict(self):
-        pass
+    def predict(self, X):
+        return np.array([self._traverse_tree(x, self.root) for x in X])
