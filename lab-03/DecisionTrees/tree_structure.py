@@ -41,6 +41,12 @@ class DecisionTree:
         feat_idxs = np.random.choice(n_features, self.n_features, replace=False)
 
         best_feature, best_threshold = self._best_split(X, y, feat_idxs)
+        left_indices, right_indices = self._split(X[:, best_feature], best_threshold)
+
+        left_children = self._grow_tree(X[left_indices, :], y[left_indices], depth + 1)
+        right_children = self._grow_tree(X[right_indices, :], y[right_indices], depth + 1)
+
+        return Node(best_feature, best_threshold, left_children, right_children)
 
     def _best_split(self, X, y, feat_idxs):
         best_gain = -1
@@ -77,13 +83,15 @@ class DecisionTree:
         information_gain = parent_entropy - child_entropy
         return information_gain
 
-    def _split(self, X_column, split_thresh):
+    @staticmethod
+    def _split(X_column, split_thresh):
         left_indices = np.argwhere(X_column <= split_thresh).flatten()
         right_indices = np.argwhere(X_column > split_thresh).flatten()
 
         return left_indices, right_indices
 
-    def _entropy(self, y):
+    @staticmethod
+    def _entropy(y):
         hist = np.bincount(y)
         ps = hist / len(y)
         return -np.sum([p * np.log(p) for p in ps if p > 0])
