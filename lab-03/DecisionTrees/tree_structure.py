@@ -21,36 +21,41 @@ class DecisionTree:
         self.n_features = n_features
         self.root = None
 
-    def fit(self, X, y):
-        if not self.n_features:
+    def fit(self, X, y):                        # utworzenie drzewa
+        if not self.n_features:                 # ustala liczbę wykorzystywanych cech ze zbioru danych
             self.n_features = X.shape[1]
         else:
             self.n_features = min(X.shape[1], self.n_features)
 
-        self.root = self._grow_tree(X, y)
+        self.root = self._grow_tree(X, y)       # rozpoczyna generowania drzewa
 
-    def _grow_tree(self, X, y, depth=0):
+    def _grow_tree(self, X, y, depth=0):        # rekurencyjne generowanie drzewa
         n_samples, n_features = X.shape
         n_labels = len(np.unique(y))
 
-        if depth >= self.max_depth or n_labels == 1 or n_samples < self.min_samples_split:
+        if (depth >= self.max_depth or                  # warunki końcowe: osiągnięto limit wysokości drzewa
+                n_labels == 1 or                        # lub nie da się go bardziej podzielić
+                n_samples < self.min_samples_split):
             counter = Counter(y)
-            node_value = counter.most_common(1)[0][0]
-            return Node(value=node_value)
+            node_value = counter.most_common(1)[0][0]   # pobiera najczęściej występującą wartość
+            return Node(value=node_value)               # i zapisuje ją
 
+        # losowo wybiera cechy
         feat_idxs = np.random.choice(n_features, self.n_features, replace=False)
 
+        # wybiera i dokonuje podziału rozgałęzień według najlepszych parametrów (dla wybranych cech)
         best_feature, best_threshold = self._best_split(X, y, feat_idxs)
         left_indices, right_indices = self._split(X[:, best_feature], best_threshold)
 
+        # rekurencyjnie buduje kolejne gałęzie drzewa
         left_children = self._grow_tree(X[left_indices, :], y[left_indices], depth + 1)
         right_children = self._grow_tree(X[right_indices, :], y[right_indices], depth + 1)
 
         return Node(best_feature, best_threshold, left_children, right_children)
 
-    def _best_split(self, X, y, feat_idxs):
-        best_gain = -1
-        index = None
+    def _best_split(self, X, y, feat_idxs):     # znalezienie najlepszego podziału
+        best_gain = -1                          # oblicza zysk informacji i, jeśli jest bardziej korzystny,
+        index = None                            # zapamiętuje i zwraca dane, dla których go obliczył
         threshold = None
 
         for idx in feat_idxs:
@@ -67,7 +72,7 @@ class DecisionTree:
 
         return index, threshold
 
-    def _information_gain(self, y, X_column, threshold):
+    def _information_gain(self, y, X_column, threshold):    # oblicza zysk informacji ze wzoru
         parent_entropy = self._entropy(y)
         left_indices, right_indices = self._split(X_column, threshold)
 
@@ -84,7 +89,7 @@ class DecisionTree:
         return information_gain
 
     @staticmethod
-    def _split(X_column, split_thresh):
+    def _split(X_column, split_thresh):         # rozdziela zbiór danych według ustalonego limitu (split_thresh)
         left_indices = np.argwhere(X_column <= split_thresh).flatten()
         right_indices = np.argwhere(X_column > split_thresh).flatten()
 
@@ -96,8 +101,8 @@ class DecisionTree:
         ps = hist / len(y)
         return -np.sum([p * np.log(p) for p in ps if p > 0])
 
-    def _traverse_tree(self, x, node):
-        if node.is_leaf_node():
+    def _traverse_tree(self, x, node):          # przechodzi po gotowym drzewie, aż natrafi na gałąź-liść
+        if node.is_leaf_node():                 # i zwróci jej najczęściej spotykaną wartość
             return node.value
 
         if x[node.feature] <= node.threshold:
