@@ -9,7 +9,7 @@ class Neuron:
         else:
             self.ws = np.random.rand(n_inputs)
 
-        print(n_inputs)
+        # print(n_inputs)
 
     @staticmethod
     def _f(x):  # activation function (here: leaky_relu)

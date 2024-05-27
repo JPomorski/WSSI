@@ -8,4 +8,4 @@ class Network:
 
         for i in range(1, n_layers):
             self.layers.append(Layer(layer_sizes[i], layer_sizes[i - 1]))
-        print(self.layers)
+        # print(self.layers)
