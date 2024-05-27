@@ -23,22 +23,25 @@ for i, size in enumerate(layer_sizes):  # iterate over layers
         x = i * horizontal_space
         y = (j - size / 2) * vertical_space + 0.5
         layer_neuron_positions.append((x, y))
+        radius = 0.07
         neuron = plt.Circle((x, y),
-                            0.05,
+                            radius,
                             facecolor='#508beb',
                             edgecolor='black',
                             linewidth=1,
                             zorder=2)
         ax.add_patch(neuron)
 
-        if i == 0:  # coloring the input layer
+        if i == 0:  # coloring and marking the input layer
             neuron.set_facecolor('#f2ba49')
+            ax.text((x - radius) - 0.02, y, 'input', ha='right', va='center')
             if j == size - 1:
-                ax.text(x, 0, 'input layer', weight='bold', ha='center')
+                ax.text(x, -0.1, 'input\nlayer', weight='bold', ha='center')
         if i == n_layers - 1:   # and the output as well
             neuron.set_facecolor('#76f249')
+            ax.text((x + radius) + 0.02, y, 'output', ha='left', va='center')
             if j == size - 1:
-                ax.text(x, 0, 'output layer', weight='bold', ha='center')
+                ax.text(x, -0.1, 'output\nlayer', weight='bold', ha='center')
 
     neuron_positions.append(layer_neuron_positions)
 
