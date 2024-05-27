@@ -34,14 +34,21 @@ for i, size in enumerate(layer_sizes):  # iterate over layers
 
         if i == 0:  # coloring and marking the input layer
             neuron.set_facecolor('#f2ba49')
-            ax.text((x - radius) - 0.02, y, 'input', ha='right', va='center')
-            if j == size - 1:
+            ax.text((x - radius) - 0.04, y, 'input', ha='right', va='center')
+            if j == 0:
                 ax.text(x, -0.1, 'input\nlayer', weight='bold', ha='center')
+
+                border = plt.Rectangle(((x - radius) - 0.02, 0), radius * 2 + 0.04,
+                                       vertical_space * layer_sizes[0], color='#e3d9c1', zorder=0)
+                ax.add_patch(border)
         if i == n_layers - 1:   # and the output as well
             neuron.set_facecolor('#76f249')
-            ax.text((x + radius) + 0.02, y, 'output', ha='left', va='center')
-            if j == size - 1:
+            ax.text((x + radius) + 0.04, y, 'output', ha='left', va='center')
+            if j == 0:
                 ax.text(x, -0.1, 'output\nlayer', weight='bold', ha='center')
+                border = plt.Rectangle(((x - radius) - 0.02, 0), radius * 2 + 0.04,
+                                       vertical_space * layer_sizes[0], color='#cde3c1', zorder=0)
+                ax.add_patch(border)
 
     neuron_positions.append(layer_neuron_positions)
 
