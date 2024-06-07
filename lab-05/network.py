@@ -13,3 +13,9 @@ class Network:
         for layer in self.layers:
             inputs = layer.get_values(inputs)
         return inputs
+
+    def bw_pass(self, loss_gradients):
+        gradient_inputs = loss_gradients
+        for layer in reversed(self.layers):
+            gradient_inputs = layer.bw_pass(gradient_inputs)
+        return gradient_inputs
