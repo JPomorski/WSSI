@@ -19,3 +19,9 @@ class Network:
         for layer in reversed(self.layers):
             gradient_inputs = layer.bw_pass(gradient_inputs)
         return gradient_inputs
+
+    def update(self, learning_rate):
+        for layer in self.layers:
+            for neuron in layer.neuron_array:
+                neuron.ws -= learning_rate * neuron.gradient_ws
+                neuron.b -= learning_rate * neuron.gradient_b
