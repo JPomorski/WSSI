@@ -48,13 +48,14 @@ for epoch in range(n_epochs):
         loss = loss_function(test_predictions, target_data)
         epoch_loss += loss
 
-        print(test_predictions)
-        print(target_data)
+        # print(test_predictions)
+        # print(target_data)
 
         loss_gradients = test_predictions - target_data
-        # network.bw_pass(loss_gradients)
-        #
-        # network.update(learning_rate)
+        # print(loss_gradients)
+
+        network.bw_pass(loss_gradients)
+        network.update(learning_rate)
 
 # sns.scatterplot(x="x",
 #                 y="y",

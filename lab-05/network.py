@@ -17,11 +17,16 @@ class Network:
     def bw_pass(self, loss_gradients):
         gradient_inputs = loss_gradients
         for layer in reversed(self.layers):
-            gradient_inputs = layer.bw_pass(gradient_inputs)
+            if layer == self.layers[0]:
+                break
+            trunc_gradients = gradient_inputs[:len(layer.neuron_array[0].inputs)]
+            gradient_inputs = layer.bw_pass(trunc_gradients)
         return gradient_inputs
 
     def update(self, learning_rate):
         for layer in self.layers:
+            if layer == self.layers[0]:
+                break
             for neuron in layer.neuron_array:
                 neuron.ws -= learning_rate * neuron.gradient_ws
                 neuron.b -= learning_rate * neuron.gradient_b
