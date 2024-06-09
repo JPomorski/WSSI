@@ -36,12 +36,11 @@ test_targets = np.eye(2)[test_targets]
 
 colors = ["#ebae34", "#eb6b34", "#eb3434", "#4feb34", "#34c9eb", "#3449eb", "#631ec9", "#c034eb"]
 
+# target marks
+ax.scatter([1, 0], [0, 1], color='gold', label="Target", s=70, linewidth=2, edgecolor='k')
+
 for epoch in range(n_epochs):
     epoch_loss = 0.0
-
-    # target marks
-    ax.scatter(1, 0, color='gold', s=70, linewidth=2, edgecolor='k')
-    ax.scatter(0, 1, color='gold', s=70, linewidth=2, edgecolor='k')
 
     test_predictions = None
 
