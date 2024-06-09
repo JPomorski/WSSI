@@ -1,8 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-# import pandas as pd
-# import seaborn as sns
-from layer import Layer
 from network import Network
 
 
@@ -67,8 +64,10 @@ for epoch in range(n_epochs):
     if epoch % 10 == 0:
         prediction_x = test_predictions[0]
         prediction_y = test_predictions[1]
-        ax.scatter(prediction_x, prediction_y, color=colors[epoch // 10], s=70, linewidth=2, edgecolor='k')
+        ax.scatter(prediction_x, prediction_y, color=colors[epoch // 10],
+                   label=f"Epoch {epoch}", s=70, linewidth=2, edgecolor='k')
 
     print(epoch_loss)
 
+plt.legend(loc="upper right")
 plt.show()
