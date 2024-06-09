@@ -29,16 +29,16 @@ n_layers = len(layer_sizes)
 network = Network(n_layers, layer_sizes)
 
 # testing the network
-n_epochs = 2
-learning_rate = 0.05
+n_epochs = 50
+learning_rate = 0.01
 
 np.random.seed(123)
 test_data = np.random.rand(10, 3)
-print(test_data)
+# print(test_data)
 
 test_targets = [1 if x[0] + x[1] + x[2] <= 2 else 0 for x in test_data]
 test_targets = np.eye(2)[test_targets]
-print(test_targets)
+# print(test_targets)
 
 for epoch in range(n_epochs):
     epoch_loss = 0.0
@@ -57,14 +57,14 @@ for epoch in range(n_epochs):
         network.bw_pass(loss_gradients)
         network.update(learning_rate)
 
-# sns.scatterplot(x="x",
-#                 y="y",
-#                 hue="class",
-#                 palette={"higher": "red", "lower": "#508beb"},
-#                 data=pd.DataFrame({'x': [x for x, _, _ in test_data],
-#                                    'y': [y for _, y, _ in test_data],
-#                                    'z': [z for _, _, z in test_data],
-#                                    'class': ['higher' if p >= 2.6 else 'lower' for p in test_predictions]}))
-#
+        # draw plot to visualise the data
+        # prediction_x = test_predictions[0]
+        # prediction_y = test_predictions[1]
+        # ax.scatter(prediction_x, prediction_y, color='yellow', s=70, linewidth=2, edgecolor='k')
+        # ax.scatter(target_data[0], target_data[1], color='gold', s=70, linewidth=2, edgecolor='k')
+
+    print(epoch_loss)
+
+
 # plt.legend(loc='upper right')
 # plt.show()

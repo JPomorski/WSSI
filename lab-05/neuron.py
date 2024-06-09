@@ -30,14 +30,14 @@ class Neuron:
     def fw_pass(self, xs):  # calculate the neuron's output: multiply the inputs with the weights
         # and sum the values together, add the bias value,
         # then transform the value via an activation function
-        self.inputs = xs
+        self.inputs = np.array(xs)
         self.calc_value = xs @ self.ws
         self.output_value = self._f(self.calc_value)
         return self.output_value
 
     def bw_pass(self, loss_gradient):
         calc_gradient = loss_gradient * self._f_derivative(self.calc_value)
-        self.gradient_ws = np.outer(calc_gradient, self.inputs)
-        self.gradient_b = np.sum(calc_gradient, axis=0)
+        self.gradient_ws = calc_gradient * self.inputs
+        self.gradient_b = calc_gradient
         self.gradient_inputs = np.dot(calc_gradient, self.ws)
         return self.gradient_inputs
